@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Project</title>
+</head>
+<body>
+    <div class="container col-8">
+        <div class="d-flex justify-content-between mt-5">
+            <h1>Hotsauce Database</h1>     
+            <div>
+                <a href="/dashboard" class="btn btn-primary me-3">Home</a>
+                
+            </div>
+        </div>
+        
+        <div class=" mt-5">
+            <h3>New Fermentation:</h3>
+            <form action="/ferment/create" class="" method="post">
+                <div class="mb-3 form-group">
+                    <label for="name" class="form-label">Name:</label>
+                    <input type="text" class="form-control" name="name">
+                </div>
+                <div>
+
+                    <label for="ferment_start">Date Started:</label>
+                    <input type="date" name="ferment_start" id="ferment_start">
+                </div>
+                <div class="mb-3 form-group mt-3">
+                    <label for="ferment_ingredients" class="form-label">Ingredients:</label>
+                    <textarea name="ferment_ingredients" class="form-control" id="ferment_ingredients" rows="5"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">Create</button>
+            </form>
+        </div>
+        
+    </div>
+    <!-- -- JS Bootstrap -- -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>

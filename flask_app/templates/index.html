@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Hotsauce index</title>
+</head>
+
+<body>
+    <div class="container col-8">
+        <div class="d-flex justify-content-between mt-5">
+            <h1>Hotsauce Database</h1>
+            <div>
+                
+                <!-- <a href="" class="btn btn-secondary me-3">logout</a> -->
+            </div>
+        </div>
+        <div class="mt-5">
+
+            <h3>Current Fermentations</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        
+                        <th scope="col-4">Name</th>
+                        <th scope="col-2">Date Started</th>
+                        <th scope="col-6">Ingredients</th>
+                        <th scope="col-2"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for hotsauce in all_hotsauces %}
+                    {% if hotsauce.completed == 0 %}
+                    <tr>    
+                        <td class="col-4">{{ hotsauce.name }}</td>
+                        <td class="col-2">{{ hotsauce.ferment_start }}</td>
+                        <td class="col-6">{{ hotsauce.ferment_ingredients }}</td>
+                        <td class="col-2"><a href="/hotsauce/{{ hotsauce.id }}/edit" class="btn btn-secondary">Process</a></td>
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+            <a href="/ferment/new" class="btn btn-primary me-3">New Fermentation</a>
+        </div>
+        <div class="mt-5">
+            <h3>Completed Sauces</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col-4">Name</th>
+                    <th scope="col-7">Description</th>
+                    <th scope="col-3"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for hotsauce in all_hotsauces  %}
+                {% if hotsauce.completed == 1 %}
+                <tr>    
+                    <td class="col-4">{{ hotsauce.name}}</td>
+                    <td class="col-7">{{ hotsauce.description }}</td>
+                    <td class="col-3"><a href="/hotsauce/{{ hotsauce.id }}" class="btn btn-secondary">View</a></td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+        </div>
+    </div>
+    <!-- -- JS Bootstrap -- -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
