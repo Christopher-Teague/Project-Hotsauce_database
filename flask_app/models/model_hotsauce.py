@@ -121,11 +121,51 @@ class Hotsauce:
 # D **************************************************
 
 
-    # @classmethod
-    # def delete_one(cls, **data):
-    #     query = 'DELETE FROM hotsauces WHERE id = %(id)s'
-    #     connectToMySQL(DATABASE_SCHEMA).query_db(query, data)
-    #     return id
+    @classmethod
+    def delete_one_hotsauce(cls, data):
+        query = 'DELETE FROM hotsauces WHERE id = %(id)s'
+        connectToMySQL(DATABASE_SCHEMA).query_db(query, data)
+        return id
 
 
 # **************** VALIDATIONS GO HERE****************
+
+    @staticmethod
+    def validate_ferment(post_data):
+        is_valid = True
+
+        if len(post_data['name']) < 3:
+            flash ("name contain at least 3 characters!")
+            is_valid = False
+
+        if len(post_data['ferment_ingredients']) < 3:
+            flash ("ingredients must be at least 3 characters!")
+            is_valid = False
+        
+        if  len(post_data['ferment_start']) < 3:
+            flash ("Must input a date!")
+            is_valid = False
+        
+        return is_valid
+
+    @staticmethod
+    def validate_process(post_data):
+        is_valid = True
+
+        if  len(post_data['process_date']) < 3:
+            flash ("Must input a date!")
+            is_valid = False
+
+        if len(post_data['process_ingredients']) < 3:
+            flash ("additional ingredients contain at least 3 characters!")
+            is_valid = False
+
+        if len(post_data['process_notes']) < 3:
+            flash ("processing notes must be at least 3 characters!")
+            is_valid = False
+        
+        if len(post_data['description']) < 3:
+            flash ("description must be at least 3 characters!")
+            is_valid = False
+        
+        return is_valid

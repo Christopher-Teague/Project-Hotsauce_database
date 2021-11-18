@@ -19,34 +19,34 @@
         
         <div class=" mt-2">
             <h3>Update:</h3>
-            <form action="/hotsauce/{{id}}/update" class="" method="post">
+            <form action="/hotsauce/{{hotsauce.id}}/update" class="" method="post">
                 <div class="mb-3 form-group">
                     <label for="name" class="form-label">Name:</label>
-                    <input type="text" class="form-control" name="name">
+                    <input type="text" class="form-control" value="{{hotsauce.name}}" name="name">
                 </div>
                 <div>
                     <label for="ferment_start">Date Started:</label>
-                    <input type="date" name="ferment_start" id="ferment_start">
+                    <input type="date" name="ferment_start" value="{{hotsauce.ferment_start}}" id="ferment_start">
                 </div>
                 <div class="mb-3 form-group mt-3">
                     <label for="ferment_ingredients" class="form-label">Ingredients:</label>
-                    <textarea name="ferment_ingredients" class="form-control" id="ferment_ingredients" rows="5"></textarea>
+                    <textarea name="ferment_ingredients" value="" class="form-control" id="ferment_ingredients" rows="5">{{hotsauce.ferment_ingredients}}</textarea>
                 </div>
                 <div>
                     <label for="process_date">Date Processed:</label>
-                    <input type="date" name="process_date" id="process_date">
+                    <input type="date" name="process_date" value="{{hotsauce.process_date}}" id="process_date">
                 </div>
                 <div class="mb-3 form-group mt-3">
                     <label for="process_ingredients" class="form-label">Additional ingredients:</label>
-                    <textarea name="process_ingredients" class="form-control" id="process_ingredients" rows="5"></textarea>
+                    <textarea name="process_ingredients" value="" class="form-control" id="process_ingredients" rows="5">{{hotsauce.process_ingredients}}</textarea>
                 </div>
                 <div class="mb-3 form-group">
                     <label for="process_notes" class="form-label">Processing Notes:</label>
-                    <textarea name="process_notes" class="form-control" id="process_notes" rows="3"></textarea>
+                    <textarea name="process_notes" value="" class="form-control" id="process_notes" rows="3">{{hotsauce.process_notes}}</textarea>
                 </div>
                 <div class="mb-3 form-group">
                     <label for="description" class="form-label">Description:</label>
-                    <textarea name="description" class="form-control" id="description" rows="3"></textarea>
+                    <textarea name="description" value="" class="form-control" id="description" rows="3">{{hotsauce.description}}</textarea>
                 </div>
                 <input type="hidden" id="completed" name="completed" value="1">
                 <button type="submit" class="btn btn-success mt-3">Update Hotsauce</button>

@@ -23,7 +23,7 @@
             <form action="/ferment/create" class="" method="post">
                 <div class="mb-3 form-group">
                     <label for="name" class="form-label">Name:</label>
-                    <input type="text" class="form-control" name="name">
+                    <input type="text" class="form-control" name="name" placeholder="name/type of peppers">
                 </div>
                 <div>
                     <label for="ferment_start">Date Started:</label>
@@ -31,12 +31,20 @@
                 </div>
                 <div class="mb-3 form-group mt-3">
                     <label for="ferment_ingredients" class="form-label">Ingredients:</label>
-                    <textarea name="ferment_ingredients" class="form-control" id="ferment_ingredients" rows="5"></textarea>
+                    <textarea name="ferment_ingredients" class="form-control" placeholder="ingredients and amounts, brine %, etc." id="ferment_ingredients" rows="5"></textarea>
                 </div>
                 <button type="submit" class="btn btn-success mt-3">Create</button>
             </form>
-        </div>
-        
+            <div class="mt-3">
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                    <p style="color: darkorange; font-weight:600; " >{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            </div>
+        </div>        
     </div>
     <!-- -- JS Bootstrap -- -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

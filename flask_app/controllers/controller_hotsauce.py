@@ -38,6 +38,11 @@ def create_ferment():
         **request.form
     }
 
+    is_valid = Hotsauce.validate_ferment(request.form)
+    
+    if not is_valid:
+        return redirect('/ferment/new')
+
     Hotsauce.create_ferment(ferment_data)
     return redirect('/dashboard')
 
@@ -79,10 +84,10 @@ def ferment_process(id):
 
 @app.route('/hotsauce/<int:id>/edit')
 def edit_hotsauce(id):
-    # context = {
-    #     'hotsauce' : Hotsauce.get_one({id:id})
-    # }
-    return render_template('/hotsauce_edit.html', id = id)
+    context = {
+        'hotsauce' : Hotsauce.get_one({'id':id})
+    }
+    return render_template('/hotsauce_edit.html',**context)
 
 @app.route('/ferment/<int:id>/update', methods=['POST'])
 def update_one(id):
@@ -90,6 +95,11 @@ def update_one(id):
         **request.form,
         'id' : id
     }
+    
+    is_valid = Hotsauce.validate_process(request.form)
+    
+    if not is_valid:
+        return redirect(f'/ferment/{id}/process')
 
     Hotsauce.update_one(hotsauce_data)
     return redirect('/dashboard')
@@ -109,6 +119,7 @@ def update_hotsauce(id):
 # D **************************************************
 
 
-# @app.route('/hotsauce/<int:id>/delete')
-# def delete_one_hotsauce():
-#     return 'delete one hotsauce'
+@app.route('/hotsauce/<int:id>/delete')
+def delete_one_hotsauce(id):
+    Hotsauce.delete_one_hotsauce({'id':id})
+    return redirect('/dashboard')
