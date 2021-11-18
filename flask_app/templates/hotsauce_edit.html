@@ -18,8 +18,20 @@
         </div>
         
         <div class=" mt-2">
-            <h3>Process:</h3>
-            <form action="/ferment/{{id}}/update" class="" method="post">
+            <h3>Update:</h3>
+            <form action="/hotsauce/{{id}}/update" class="" method="post">
+                <div class="mb-3 form-group">
+                    <label for="name" class="form-label">Name:</label>
+                    <input type="text" class="form-control" name="name">
+                </div>
+                <div>
+                    <label for="ferment_start">Date Started:</label>
+                    <input type="date" name="ferment_start" id="ferment_start">
+                </div>
+                <div class="mb-3 form-group mt-3">
+                    <label for="ferment_ingredients" class="form-label">Ingredients:</label>
+                    <textarea name="ferment_ingredients" class="form-control" id="ferment_ingredients" rows="5"></textarea>
+                </div>
                 <div>
                     <label for="process_date">Date Processed:</label>
                     <input type="date" name="process_date" id="process_date">
@@ -37,7 +49,7 @@
                     <textarea name="description" class="form-control" id="description" rows="3"></textarea>
                 </div>
                 <input type="hidden" id="completed" name="completed" value="1">
-                <button type="submit" class="btn btn-success mt-3">Finish Hotsauce</button>
+                <button type="submit" class="btn btn-success mt-3">Update Hotsauce</button>
             </form>
         </div>
         

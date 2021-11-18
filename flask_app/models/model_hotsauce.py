@@ -111,6 +111,10 @@ class Hotsauce:
         query = 'UPDATE hotsauces SET process_date = %(process_date)s, process_ingredients = %(process_ingredients)s, process_notes = %(process_notes)s, description = %(description)s, completed = %(completed)s WHERE id = %(id)s'
         return connectToMySQL(DATABASE_SCHEMA).query_db(query, data)
 
+    @classmethod
+    def update_hotsauce(cls, data):
+        query = 'UPDATE hotsauces SET name = %(name)s, ferment_start = %(ferment_start)s, ferment_ingredients = %(ferment_ingredients)s, process_date = %(process_date)s, process_ingredients = %(process_ingredients)s, process_notes = %(process_notes)s, description = %(description)s, completed = %(completed)s WHERE id = %(id)s'
+        return connectToMySQL(DATABASE_SCHEMA).query_db(query, data)
 
 # D **************************************************
 # D **************************************************

@@ -70,15 +70,21 @@ def get_one(id):
 # U **************************************************
 # U **************************************************
 
+@app.route('/ferment/<int:id>/process')
+def ferment_process(id):
+    # context = {
+    #     'hotsauce' : Hotsauce.get_one({id:id})
+    # }
+    return render_template('/ferment_process.html', id = id)
 
 @app.route('/hotsauce/<int:id>/edit')
 def edit_hotsauce(id):
     # context = {
     #     'hotsauce' : Hotsauce.get_one({id:id})
     # }
-    return render_template('/ferment_process.html', id = id)
+    return render_template('/hotsauce_edit.html', id = id)
 
-@app.route('/hotsauce/<int:id>/update', methods=['POST'])
+@app.route('/ferment/<int:id>/update', methods=['POST'])
 def update_one(id):
     hotsauce_data = {
         **request.form,
@@ -88,6 +94,15 @@ def update_one(id):
     Hotsauce.update_one(hotsauce_data)
     return redirect('/dashboard')
 
+@app.route('/hotsauce/<int:id>/update', methods=['POST'])
+def update_hotsauce(id):
+    hotsauce_data = {
+        **request.form,
+        'id' : id
+    }
+
+    Hotsauce.update_hotsauce(hotsauce_data)
+    return redirect('/dashboard')
 
 # D **************************************************
 # D **************************************************

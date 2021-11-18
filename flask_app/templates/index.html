@@ -39,7 +39,7 @@
                         <td class="col-3">{{ hotsauce.name }}</td>
                         <td class="col-2">{{ hotsauce.ferment_start }}</td>
                         <td class="col-6" style="white-space: pre-wrap;">{{ hotsauce.ferment_ingredients }}</td>
-                        <td class="col-2"><a href="/hotsauce/{{ hotsauce.id }}/edit" class="btn btn-success">Process</a></td>
+                        <td class="col-2"><a href="/ferment/{{ hotsauce.id }}/process" class="btn btn-success">Process</a></td>
                     </tr>
                     {% endif %}
                     {% endfor %}
